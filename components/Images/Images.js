@@ -10,10 +10,9 @@ export default function Images({data}){
                 <div className={classes.Grid}>
                     {
                         cats.map(item => {
-                            console.log(item)
                             const link = `/category/${item.id}`
                             return (
-                                <Link href={link}>
+                                <Link href={link} key={item.id}>
                                     <h3>{item.titol}</h3>
                                     <Image src={item.imatge.responsiveImage.src} width="400" height="270"/>
                                 </Link>

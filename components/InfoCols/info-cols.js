@@ -6,9 +6,9 @@ export default function InfoCols({ data }){
             <div className="container">
             {
 
-                columnes.map(item => {
+                columnes.map((item, index) => {
                     return (
-                        <div dangerouslySetInnerHTML={{__html: item.text}}/>
+                        <div dangerouslySetInnerHTML={{__html: item.text}} key={index}/>
 
                     )
                 })

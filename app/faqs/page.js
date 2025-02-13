@@ -32,8 +32,6 @@ export default async function Page() {
   return (
    <>
     <Header />
-    <Nav />
-    <InfoCols />
     <Faqs />
    </>
   )
