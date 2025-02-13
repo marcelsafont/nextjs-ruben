@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '@/components/Logo/Logo'
 import Nav from '@/components/Nav/Nav'
-const Header = (props) => {
+const HeaderHome = (props) => {
   const [menuClass, setMenuClass] = useState('Header');
   useEffect(() => {
     const handleScroll = e => {
@@ -16,9 +16,9 @@ const Header = (props) => {
   }, [])
   return(
     <header className={`${menuClass} ${props.customClass}`} >
-          <Logo isSmall={true} />
+          <Logo />
           <Nav />
     </header>
   );
 }; 
-export default Header;
+export default HeaderHome;

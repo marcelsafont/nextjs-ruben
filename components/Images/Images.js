@@ -1,0 +1,28 @@
+import Link from "next/link";
+import classes from './images.module.css'
+import Image from "next/image";
+import { Image as DatoImage, RSCImage as DatoSRCImage } from "react-datocms";
+export default function Images({data}){
+    const cats = data.allCategoriaImatges;
+    return (
+        <div className={classes.Filter}>
+            <div className="container">
+                <div className={classes.Grid}>
+                    {
+                        cats.map(item => {
+                            console.log(item)
+                            const link = `/category/${item.id}`
+                            return (
+                                <Link href={link}>
+                                    <h3>{item.titol}</h3>
+                                    <Image src={item.imatge.responsiveImage.src} width="400" height="270"/>
+                                </Link>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+            
+        </div>   
+    )
+}

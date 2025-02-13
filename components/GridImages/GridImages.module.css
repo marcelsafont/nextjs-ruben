@@ -1,0 +1,37 @@
+.Masonry {
+    margin-top:20px;
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin: 10px -10px 20px -10px; /* gutter size offset */
+    width: calc(100% + 20px);
+
+}
+
+.Masonry > div {
+    background-clip: padding-box;
+    padding:10px;
+}
+
+.Masonry > div > a{
+    padding-bottom:10px;
+    display:block;
+    text-align:center;
+}
+
+.Masonry > div img{
+    max-width:100%;
+}
+.Masonry > div{
+    min-height:140px;
+}
+
+.Margin{
+    margin:0 30px 0 30px
+}
+
+@media screen and (min-width:1200px){
+    .Masonry > div{
+        min-height:300px;
+    }
+}

@@ -1,3 +1,258 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.App{
+    font-family: Raleway, sans-serif;
+  }
+  
+  .container{
+    max-width:1200px;
+  }
+  
+  html, body{
+    font-size:16px;
+  }
+  
+  h2{
+    width:auto;
+    font-size:30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background:url('/assets/images/trazo-rojo.svg') no-repeat bottom center;
+    background-size:90%;
+    display:inline-block;
+    padding-bottom:24px;
+    margin-bottom:0px;
+  }
+  
+  h2 + p{
+    margin-top:5px;
+  }
+  
+  .Header{
+    position:fixed;
+    top:0;
+    max-height:150px;
+    width:100%;
+    background-color:#fff;
+    text-align:center;
+  }
+  
+  .Header.Headerhome{
+    max-height:300px;
+  }
+  
+  .Header > div{
+    background-color:#000;
+    height:80px;
+  }
+  
+  .Header.fixed{
+    transition: all .5s;
+    z-index:100;
+  }
+  
+  .Header.fixed a{
+    max-height:60px;
+    transition: all .5s;
+  }
+  
+  .Header.fixed a span{
+    display:none;
+  }
+  
+  .Header.fixed a img{
+    width:20px;
+    transition: all .2s;
+    padding:5px;
+  }
+  
+  .Header.fixed > div{
+    height:45px;
+  }
+  
+  .Header a img{
+    width:30px;
+    padding:10px 20px;
+  }
+  
+  .Header.normal a img{
+    transition: all .5s;
+  }
+  
+  .Header > div > a{
+    display:flex;
+    color:#fff;
+    font-family: Lora;
+    justify-content: center;
+    align-items:center;
+    text-decoration:none;
+    font-size:20px;
+    text-transform: uppercase;
+  }
+  
+  .Header.Headerhome > div > a{
+    align-items:center;
+  }
+  
+  .Header > div{
+    text-align:center;
+  }
+  
+  .Navigation{
+    border-bottom:1px solid #333;
+    border-top:1px solid #333;
+    text-align:center;
+  }
+  
+  .Navigation ul li{
+    list-style: none;
+    padding:10px;
+  }
+  
+  .Navigation a{
+    text-decoration: none;
+    color:#333;
+    text-transform: uppercase;
+    font-weight:700;
+    font-size:15px;
+  }
+  
+  .Navigation a.active{
+    color:#C91818;
+    
+  }
+  
+  .Navigation ul{
+    display:flex;
+    justify-content: center;
+    margin:0;
+    padding:0;
+  }
+  
+  main{
+    padding-top:120px;
+    min-height:calc(100vh - 190px);
+    /* background:url('./assets/images/ilustracion-lateral.svg') no-repeat left center; */
+  }
+  
+  p a{
+    color:#0d839d;
+    text-decoration:none;
+  }
+  
+  
+  /*faqs*/
+  .listfaqs{
+    margin-top:40px;
+    margin-bottom:40px;
+    padding:0 20px;
+  }
+  
+  .listfaqs .item .title{
+    font-size:16px;
+    cursor:pointer;
+    font-weight: bold;
+  }
+  
+  .listfaqs .item .text{
+    opacity:0;
+    max-height:0;
+    overflow-y: hidden;
+    transition:all 1s esase;
+  }
+  
+  .listfaqs .item.open .text{
+    max-height:1000px;
+    opacity:1;
+  }
+  .listfaqs .item img{
+    max-width:100%;
+    height:auto;
+  }
+  
+  .listfaqs .item{
+    padding:20px;
+    margin:10px auto;
+    padding-right:40px;
+    position:relative;
+    background-color:#fff;
+    transition: all 0.4s ease;
+    border:1px solid #000;
+  }
+  
+  .listfaqs .item:after{
+    content:"";
+    background:url('/assets/images/arrow-down.svg') no-repeat;
+    background-size:10px 10px;
+    width:10px;
+    height:10px;
+    right:20px;
+    top:20px;
+    position:absolute;
+  }
+  
+  .listfaqs .item.open{
+    margin-bottom:15px;
+  }
+  
+  .listfaqs .item.open:after{
+    transform:rotate(180deg);
+  }
+  
+  @media screen and (min-width:768px){
+    .listfaqs .item .title{
+      font-size:18px;
+    }
+    .Header.Headerhome > div > a{
+      align-items:flex-end;
+    }
+    .container{
+      max-width:1200px;
+      margin:auto
+    }
+    .Header > div > a{
+      font-size:20px;
+    }
+    .Header.Headerhome > div > a{
+      font-size:30px;
+    }
+    .Header a img{
+      width:45px;
+    }
+    .Header.Headerhome a img{
+      width:95px;
+    }
+    .Header > div{
+      height:100px;
+    }
+    .Header.Headerhome > div{
+      height:200px;
+    }
+    main{
+      padding-top:145px;
+      min-height:calc(100vh - 250px);
+      background-image:url('/assets/images/textura-home.svg');
+      background-repeat: repeat-y;
+      background-size:100%;
+    }
+    .Navigation{
+      background-image:url('/assets/images/textura-menu.svg'), url('/assets/images/textura-menu-right.svg');
+      background-repeat: no-repeat, no-repeat;
+      background-position:top left -90px, top right -90px; 
+    }
+    .Navigation ul li{
+      padding:10px 20px;
+    }
+    .Navigation a{
+      font-size:19px;
+    }
+  }
+  
+  @media screen and (min-width:1200px){
+    .Navigation{
+      background-image:url('/assets/images/textura-menu.svg'), url('/assets/images/textura-menu-right.svg');
+      background-repeat: no-repeat, no-repeat;
+      background-position:top left, top right; 
+    }
+  }
+  
+  
+  

@@ -1,0 +1,36 @@
+.GridEvents{
+    margin:20px 0;
+    padding-left:20px;
+}
+
+.Title{
+    border-bottom:1px solid #333;
+    text-transform: uppercase;
+    padding-left:20px;
+    padding-bottom:10px;
+    position:relative;
+    z-index:1;
+    font-size:18px;
+}
+
+/* .Title:after{
+    display:block;
+    content:"";
+    width:300px;
+    height:100px;
+    background-image:url('../../assets/images/trazo-blanco.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:absolute;
+    top:-50px;
+    left:0;
+    z-index:0;
+} */
+
+@media screen and (min-width:1200px){
+    .Title{
+        padding-left:0;
+        padding-bottom:5px;
+        font-size:21px;
+    }
+}

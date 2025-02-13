@@ -1,0 +1,40 @@
+.Grid{
+    display:flex;
+    flex-direction:column;
+    min-height:300px;
+    justify-content: center;
+}
+
+.Grid > a{
+    padding:10px 20px;
+    background-color:#fff;
+    cursor:pointer;
+    color:#333;
+    text-decoration: none;
+}
+
+.Grid > a img{
+    max-width:100%;
+}
+
+.Grid h3{
+    font-size:18px;
+    text-transform: uppercase;
+    text-align:center;
+    margin:10px 0;
+}
+
+@media screen and (min-width:768px){
+    .Grid{
+        flex-direction:row;
+    }
+
+    .Grid a{
+        flex-basis:400px;
+        margin:20px;
+        padding:20px;
+    }
+    .Grid h3{
+        font-size:21px;
+    }
+}

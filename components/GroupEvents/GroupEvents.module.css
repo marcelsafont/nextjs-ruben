@@ -1,0 +1,15 @@
+.GridBlock{
+    display:flex;
+    flex-direction:column;
+    padding-left:20px;
+ }
+ 
+ @media screen and (min-width:1120px){
+     .GridBlock{
+         flex-direction:row;
+         flex-wrap: wrap;
+      }
+      .GridBlock > div{
+         flex:0 0 calc(50% - 20px);
+      }
+ }
