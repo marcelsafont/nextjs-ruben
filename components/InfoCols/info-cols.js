@@ -5,7 +5,6 @@ export default function InfoCols({ data }){
         <div className={styles.Home}>
             <div className="container">
             {
-
                 columnes.map((item, index) => {
                     return (
                         <div dangerouslySetInnerHTML={{__html: item.text}} key={index}/>

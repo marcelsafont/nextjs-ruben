@@ -7,12 +7,10 @@ import Faqs from "@/components/Faqs/Faqs";
 
 const PAGE_CONTENT_QUERY = `
   {
-    info{
-      columnes{
+    faqPage{
+      faqsItem{
+        titol
         text
-        imatge{
-          url
-        }
       }
     }
   }
@@ -32,7 +30,7 @@ export default async function Page() {
   return (
    <>
     <Header />
-    <Faqs />
+    <Faqs data={data}/>
    </>
   )
 }

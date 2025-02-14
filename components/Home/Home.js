@@ -4,7 +4,6 @@ import HeaderHome from '../HeaderHome/header-home';
 
 export default function Home({ data }){
 
-        console.log(data)
         //const imagePath = process.env.REACT_APP_TEST_VAR === 'dev' ? Constants.dev.imagesURL: Constants.prod.imagesURL;
         return(
             <>
