@@ -13,9 +13,9 @@ export default function Faqs({ data }){
                     
                         {
                             items.map((item, index) => {
-                                console.log(index)
                                 return (
                                     <div 
+                                    key={index}
                                         className={`item ${open === index ? 'open': ''}`}
                                         onClick={() => setOpen(index) }
                                      >
