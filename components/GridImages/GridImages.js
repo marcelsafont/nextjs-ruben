@@ -9,7 +9,8 @@ export default function GridImages({ data }){
         700: 2,
     };
   const images = data.map(item => {
-    const slug = `${encodeURI(item.titol).toLowerCase()}=${item.id}`;
+   
+    const slug = `${item.titol.trim().toLowerCase().replace(/\s+/g, "-")}=${item.id}`;
       return <Link href={'/galeria/item/' + slug} key={item.id}>
           <img src={item.imatge.url} width="387px" height="387px"/>
       </Link>
