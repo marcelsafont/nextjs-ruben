@@ -3,6 +3,58 @@
     flex-direction:column;
     padding-left:20px;
  }
+
+ .Item {
+  display:flex;
+  margin:20px 0;
+  background-color:#fff;
+  padding:10px;
+}
+
+.InfoContent p{
+  margin:0;
+  padding:0;
+}
+
+.Info h4{
+  margin-top:0;
+  margin-bottom:10px;
+}
+
+.Image{
+  flex: 0 0 100px;
+  padding-right:20px;
+}
+
+.Image img{
+  max-width:100%;
+}
+
+.Date{
+  display:block;
+  padding-top:10px;
+}
+
+
+@media screen and (min-width:1200px){
+  .Info{
+      flex: 0 0 60em;
+  }
+  .Image{
+      flex: 0 0 8em;
+      padding-right:15px;
+  }
+
+  .Date{
+      padding-top:10px;
+  }
+
+  .InfoContent{
+      display:flex;
+  }
+  
+
+}
  
  @media screen and (min-width:1120px){
      .GridBlock{
@@ -13,3 +65,8 @@
          flex:0 0 calc(50% - 20px);
       }
  }
+
+ .GridEvents{
+  margin:20px 0;
+  padding-left:20px;
+}

@@ -5,7 +5,6 @@ import React, { Component, useState } from 'react';
 export default function Faqs({ data }){
     const items = data.faqPage.faqsItem;
     const [open, setOpen] = useState(10000);
-    console.log(open)
         return(
             <div className="container">
 

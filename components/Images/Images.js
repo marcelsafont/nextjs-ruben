@@ -9,8 +9,9 @@ export default function Images({data}){
             <div className="container">
                 <div className={classes.Grid}>
                     {
-                        cats.map(item => {
-                            const link = `/category/${item.id}`
+              cats.map(item => {
+                            const slug = `${encodeURI(item.titol).toLowerCase()}=${item.id}`;
+                            const link = `/categoria/${slug}`
                             return (
                                 <Link href={link} key={item.id}>
                                     <h3>{item.titol}</h3>
