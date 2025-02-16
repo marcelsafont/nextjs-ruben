@@ -1,4 +1,4 @@
-import DetailProject from "@/components/DetailProject/Detailproject";
+import DetailProject from "@/components/DetailProject/DetailProjectV1";
 import Header from "@/components/header";
 import { performRequest } from "@/lib/datocms";
 import { toNextMetadata } from "react-datocms";
