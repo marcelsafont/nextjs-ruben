@@ -2,6 +2,7 @@ import DetailProject from "@/components/DetailProject/DetailProjectV1";
 import Header from "@/components/header";
 import { performRequest } from "@/lib/datocms";
 import { toNextMetadata } from "react-datocms";
+import { notFound } from 'next/navigation'
 
 
 function getPageRequest(slug) {
@@ -26,6 +27,10 @@ export async function generateMetadata({ params }) {
   const id = slug.split('%3D')
   const pageRequest = getPageRequest(id[1]);
   const data = await performRequest(pageRequest);
+  if(!data){
+    notFound()
+  }
+
   return {
     title: `${data.galeriaImatge.titol} | Barbero Tattoo`,
     description: "Página web dedicada al trabajo de Rubén Barbero (barbero tattoo), donde encontrar sus tatuajes y diseños, viajes, ideas y convenciones",
@@ -38,7 +43,7 @@ export default async function Page({ params }) {
     const id = slug.split('%3D')
     const pageRequest = getPageRequest(id[1]);
     const data = await performRequest(pageRequest);
-
+    
 
   return (
    <>
