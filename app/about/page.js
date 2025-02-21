@@ -25,7 +25,7 @@ function getPageRequest() {
 export async function generateMetadata() {
   return {
     title: "About | Barbero Tattoo",
-    description: "Página web dedicada al trabajo de Rubén Barbero (barbero tattoo), donde encontrar sus tatuajes y diseños, viajes, ideas y convenciones",
+    description: "Conoce mejor a Barbero y averigua como conseguir una cita para tu próximo tatuaje",
   };
 }
 
