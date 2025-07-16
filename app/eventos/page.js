@@ -14,7 +14,7 @@ let currentDate = year + '-' + month + '-' + day;
 
 const PAGE_CONTENT_QUERY = `
   {
-    allEsdeveniments(orderBy: inici_ASC, filter: {inici: {gte: "${currentDate}"}}){
+    allEsdeveniments(orderBy: inici_ASC){
       id
       titol
       ciutat{
