@@ -6,14 +6,14 @@ import NavCategories from "@/components/NavCategories/nav-categories";
 function getPageRequest(slug) {
   const PAGE_CONTENT_QUERY = `
     {
-      allGaleriaImatges(filter: {categoria: {eq: "${slug}"}}, first: 100, orderBy: _createdAt_DESC){
+      allGaleriaImatges(filter: {categoria: {eq: "${slug}"}}, first: 120, orderBy: _createdAt_DESC){
         titol
         id
         imatge {
           url
         }
       }
-      allCategoriaImatges(first: "100"){
+      allCategoriaImatges(first: "120"){
         id
         titol
         imatge{
