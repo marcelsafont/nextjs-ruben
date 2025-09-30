@@ -14,15 +14,13 @@ let currentDate = year + '-' + month + '-' + day;
 
 const PAGE_CONTENT_QUERY = `
   {
-    allEsdeveniments(orderBy: inici_ASC){
+    allEsdeveniments{
       id
       titol
       ciutat{
         id
         nom
       }
-      inici
-      final
       imatge{
         url
       }

@@ -35,6 +35,12 @@
   padding-top:10px;
 }
 
+.Info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
 @media screen and (min-width:1200px){
   .Info{
