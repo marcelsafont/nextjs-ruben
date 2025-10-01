@@ -3,10 +3,10 @@ import Header from "@/components/header";
 import GridImages from "@/components/GridImages/GridImages";
 import NavCategories from "@/components/NavCategories/nav-categories";
 
-function getPageRequest(slug) {
+function getPageRequest() {
   const PAGE_CONTENT_QUERY = `
     {
-      allGaleriaImatges(filter: {categoria: {eq: "${slug}"}}, first: 120, orderBy: _createdAt_DESC){
+      allGaleriaImatges(filter: {categoria: {eq: 173632921}}, first: 120, orderBy: _createdAt_DESC){
         titol
         id
         imatge {
@@ -27,17 +27,15 @@ function getPageRequest(slug) {
 
 export async function generateMetadata({ params }) {
   const { slug } = params;
-  const titol = slug.split('%3D')
   return {
-    title: `${titol[0].toUpperCase()} | Barbero Tattoo`,
+    title: `Proyectos | Barbero Tattoo`,
     description: "Página web dedicada al trabajo de Rubén Barbero (barbero tattoo), donde encontrar sus tatuajes y diseños, viajes, ideas y convenciones",
   };
 }
 
 export default async function Page({ params }) {
   const { slug } = params; // Get dynamic slug from the URL
-  const id = slug.split('%3D')
-  const pageRequest = getPageRequest(id[1]);
+  const pageRequest = getPageRequest();
   const data = await performRequest(pageRequest);
 
   return (

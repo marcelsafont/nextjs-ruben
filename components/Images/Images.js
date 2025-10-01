@@ -8,7 +8,7 @@ export default function Images({data}) {
 			<div className='container'>
 				<div className={classes.Grid}>
 					{cats.map((item) => {
-						const slug = `${item.titol.trim().toLowerCase().replace(/\s+/g, "-")}=${item.id}`;
+						const slug = `${item.titol.trim().toLowerCase().replace(/\s+/g, "-")}`;
 						const link = `/categoria/${slug}`
 						return (
 							<Link href={link} key={item.id}>
