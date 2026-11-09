@@ -23,7 +23,16 @@
     padding-bottom:24px;
     margin-bottom:0px;
   }
-  
+
+  /* FAQ question titles are headings too, but they must not inherit the
+     decorative red underline used for section headings. */
+  .listfaqs .item .title{
+    text-transform:none;
+    background:none;
+    padding-bottom:0;
+    display:block;
+  }
+
   h2 + p{
     margin-top:5px;
   }
@@ -152,6 +161,7 @@
     font-size:16px;
     cursor:pointer;
     font-weight: bold;
+    margin:0;
   }
   
   .listfaqs .item .text{
@@ -202,8 +212,7 @@
   @media screen and (min-width:768px){
     .listfaqs .item .title{
       font-size:18px;
-    }
-    .Header.Headerhome > div > a{
+    }    .Header.Headerhome > div > a{
       align-items:flex-end;
     }
     .container{

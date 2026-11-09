@@ -1,6 +1,6 @@
-import { performRequest } from "@/lib/datocms";
-import { toNextMetadata } from "react-datocms";
-import Home from '@/components/Home/Home'
+import { performRequest } from '@/lib/datocms';
+import Home from '@/components/Home/Home';
+import { buildMetadata } from '@/lib/metadata';
 
 const PAGE_CONTENT_QUERY = `
   {
@@ -19,31 +19,30 @@ function getPageRequest() {
 export async function generateMetadata() {
   const pageRequest = getPageRequest();
   const data = await performRequest(pageRequest);
-  return {
-    title: "Inicio | Barbero Tattoo",
-    description: "Página web dedicada al trabajo de Rubén Barbero (barbero tattoo), donde encontrar sus tatuajes y diseños, viajes, ideas y convenciones",
-    openGraph: {
-      images: [
-        {
-          url: data?.home?.imatge?.url || "/default-image.jpg",
-          width: 1200,
-          height: 630,
-          alt: data.home.titol || "Default Image",
-        },
-      ],
-    },
-  };
-}
+  const image = data?.home?.imatge?.url;
 
+  return buildMetadata({
+    title: 'Barbero Tattoo. Tatuador en Barcelona',
+    description:
+      'Barbero Tattoo, tatuador en Barcelona. Tatuajes personalizados con diseño propio, atención cercana y viajes por toda España. Pide cita por WhatsApp.',
+    path: '/',
+    image,
+    keywords: [
+      'tatuador en Barcelona',
+      'barbero tattoo Barcelona',
+      'tatuador en Barcelona',
+      'tatuajes Barcelona',
+    ],
+  });
+}
 
 export default async function Page() {
   const pageRequest = getPageRequest();
   const data = await performRequest(pageRequest);
 
-
   return (
     <>
       <Home data={data} />
     </>
-  )
+  );
 }

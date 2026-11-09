@@ -1,54 +1,83 @@
 import DetailProject from "@/components/DetailProject/DetailProjectV1";
 import Header from "@/components/header";
 import { performRequest } from "@/lib/datocms";
-import { toNextMetadata } from "react-datocms";
-import { notFound } from 'next/navigation'
+import { notFound } from 'next/navigation';
+import { buildMetadata } from "@/lib/metadata";
+import { buildBreadcrumbJsonLd } from "@/lib/business-jsonld";
 
+/**
+ * The slug is built by GridImages as `<titulo-slug>=<datoCMS id>`, and arrives
+ * URL-encoded, so the separator shows up as `%3D`. Keep this parsing in sync
+ * with components/GridImages/GridImages.js.
+ */
+function extractId(slug) {
+  const [title, id] = decodeURIComponent(slug).split('=');
+  return { title, id };
+}
 
-function getPageRequest(slug) {
-
-
-const PAGE_CONTENT_QUERY = `
+function getPageRequest(id) {
+  const PAGE_CONTENT_QUERY = `
 {
-   galeriaImatge(filter: {id: {eq: "${slug}"}}) {
+   galeriaImatge(filter: {id: {eq: "${id}"}}) {
       titol
       imatge{
         url
       }
-    }
+   }
 }
 `;
-
   return { query: PAGE_CONTENT_QUERY };
 }
 
 export async function generateMetadata({ params }) {
-  const { slug } = params; // Get dynamic slug from the URL
-  const id = slug.split('%3D')
-  const pageRequest = getPageRequest(id[1]);
+  const { id } = extractId(params.slug);
+  const pageRequest = getPageRequest(id);
   const data = await performRequest(pageRequest);
-  if(!data){
-    notFound()
+
+  if (!data?.galeriaImatge) {
+    return buildMetadata({
+      title: 'Tattoo no encontrado',
+      description: 'El tattoo solicitado no está disponible.',
+      path: `/galeria/item/${params.slug}`,
+      noIndex: true,
+    });
   }
 
-  return {
-    title: `${data.galeriaImatge.titol} | Barbero Tattoo`,
-    description: "Página web dedicada al trabajo de Rubén Barbero (barbero tattoo), donde encontrar sus tatuajes y diseños, viajes, ideas y convenciones",
-  };
+  const { titol } = data.galeriaImatge;
+
+  return buildMetadata({
+    title: titol,
+    description: `${titol}: tattoo realizado por Barbero Tattoo en Barcelona. Tatuajes personalizados en el estudio de Rubén Barbero.`,
+    path: `/galeria/item/${params.slug}`,
+    image: data.galeriaImatge.imatge?.url,
+    type: 'article',
+    keywords: [titol, `tattoo ${titol}`, 'tatuajes Barcelona'],
+  });
 }
 
-
 export default async function Page({ params }) {
-  const { slug } = params; // Get dynamic slug from the URL
-    const id = slug.split('%3D')
-    const pageRequest = getPageRequest(id[1]);
-    const data = await performRequest(pageRequest);
-    
+  const { id } = extractId(params.slug);
+  const pageRequest = getPageRequest(id);
+  const data = await performRequest(pageRequest);
+
+  if (!data?.galeriaImatge) {
+    notFound();
+  }
+
+  const jsonLd = buildBreadcrumbJsonLd([
+    { name: 'Inicio', path: '/' },
+    { name: 'Galería', path: '/galeria' },
+    { name: data.galeriaImatge.titol, path: `/galeria/item/${params.slug}` },
+  ]);
 
   return (
-   <>
-    <Header />
-    <DetailProject data={data.galeriaImatge} />
-   </>
-  )
+    <>
+      <Header />
+      <DetailProject data={data.galeriaImatge} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+    </>
+  );
 }

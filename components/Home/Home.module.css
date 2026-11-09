@@ -5,6 +5,99 @@
     align-items: center;
 }
 
+.Intro{
+    max-width:720px;
+    margin:0 auto 30px;
+    text-align:center;
+    padding:0 20px;
+}
+
+.Title{
+    font-size:38px;
+    line-height:1.15;
+    font-weight:700;
+    text-transform:uppercase;
+    background:url('/assets/images/trazo-rojo.svg') no-repeat bottom 6px center;
+    background-size:90% 20px;
+    display:inline-block;
+    padding-bottom:24px;
+    margin:0 0 10px;
+}
+
+.Lead{
+    font-size:20px;
+    line-height:1.5;
+    margin:20px auto 12px;
+    max-width:640px;
+}
+
+.Text{
+    font-size:16px;
+    line-height:1.6;
+    margin:0 auto;
+    max-width:640px;
+}
+
+.Actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    justify-content:center;
+    margin:28px 0 22px;
+}
+
+.CtaPrimary,
+.CtaSecondary{
+    display:inline-block;
+    padding:12px 24px;
+    font-weight:700;
+    text-transform:uppercase;
+    text-decoration:none;
+    font-size:14px;
+    border:2px solid #000;
+    transition:all .2s ease;
+}
+
+.CtaPrimary{
+    background-color:#000;
+    color:#fff;
+}
+
+.CtaPrimary:hover{
+    background-color:#C91818;
+    border-color:#C91818;
+    color:#fff;
+}
+
+.CtaSecondary{
+    background-color:transparent;
+    color:#000;
+}
+
+.CtaSecondary:hover{
+    background-color:#000;
+    color:#fff;
+}
+
+.Services{
+    list-style:none;
+    padding:0;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 10px;
+    justify-content:center;
+    max-width:640px;
+}
+
+.Services li{
+    border:1px solid #333;
+    padding:6px 12px;
+    font-size:13px;
+    text-transform:uppercase;
+    font-weight:700;
+}
+
 .Icons{
     display:flex;
     align-items: center;
@@ -32,15 +125,20 @@ image.picture{
 
 
 @media screen and (min-width: 768px){
+    .Title{
+        font-size:40px;
+        padding-top:20px;
+    }
+
+    .Intro{
+        margin-bottom:40px;
+    }
+
     .Icons div img{
         width:40px;
-    }
-    .ImageHome{
-        display:block;
-        margin-top:120px;
     }
     .Icons{
         flex-direction:row;
     }
-   
+
 }
