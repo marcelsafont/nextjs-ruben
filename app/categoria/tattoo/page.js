@@ -59,7 +59,7 @@ export default async function Page() {
       <Header />
       <PageHeading
         title="Tattoo"
-        intro="Tatuajes realizados en el estudio de Barcelona: blackwork, fino, color y otros estilos, con fotos de cada pieza."
+        intro="Tatuajes realizados por Barbero Tattoo: blackwork, fino, color y otros estilos, con fotos de cada pieza."
       />
       <NavCategories data={data.allCategoriaImatges} />
       <GridImages data={data.allGaleriaImatges} />
