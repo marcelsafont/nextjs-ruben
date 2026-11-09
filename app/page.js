@@ -17,16 +17,13 @@ function getPageRequest() {
 }
 
 export async function generateMetadata() {
-  const pageRequest = getPageRequest();
-  const data = await performRequest(pageRequest);
-  const image = data?.home?.imatge?.url;
-
+  // The OG image is the static /assets/images/og-image.jpeg (see
+  // lib/metadata.js#DEFAULT_OG_IMAGE), not the DatoCMS home image.
   return buildMetadata({
     title: 'Barbero Tattoo. Tatuador en Barcelona',
     description:
       'Barbero Tattoo, tatuador en Barcelona. Tatuajes personalizados con diseño propio, atención cercana y viajes por toda España. Pide cita por WhatsApp.',
     path: '/',
-    image,
     keywords: [
       'tatuador en Barcelona',
       'barbero tattoo Barcelona',
