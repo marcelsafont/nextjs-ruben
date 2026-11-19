@@ -45,7 +45,6 @@ export default function Home({ data }) {
 
             <ul className={classes.Services}>
               <li>Tatuajes personalizados</li>
-              <li>Barbero y afeitado</li>
               <li>Diseño de tatuaje</li>
               <li>Viajes y Guest tattoo</li>
             </ul>
